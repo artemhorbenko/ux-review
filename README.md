@@ -132,6 +132,7 @@ plugins/ux-review/
 evals/                                 scenarios, trigger prompts, results log
 docs/                                  screenshots
 ux-review-skill.zip                    the skill packaged for upload to the Claude app
+CLAUDE.md, STATUS.md, CHANGELOG.md     repo docs for maintainers (not shipped)
 ```
 
 ## Credits
