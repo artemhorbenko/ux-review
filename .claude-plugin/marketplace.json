@@ -10,7 +10,7 @@
       "name": "ux-review",
       "source": "./plugins/ux-review",
       "description": "Walk key user tasks step by step (cognitive walkthrough), check Nielsen's 10 heuristics, IA, microcopy, forms, trust, accessibility basics, mobile, decision support and error states; get a prioritized, render-checked HTML report, a 5-task usability-test plan and a hands-off brief.",
-      "version": "1.0.0"
+      "version": "1.0.1"
     }
   ]
 }

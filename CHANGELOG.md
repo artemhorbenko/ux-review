@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 - 2026-11-24
+
+- Stay on the domain the person named: subdomains such as `get.` or `staging.` are noted, not reviewed as the product.
+- Before reporting a missing page, check menus, the sitemap and likely URLs with a same-origin request; a `no-cors` response (status 0) is not evidence.
+- Eval: "subdomain-trap" scenario.
+
 ## 1.0.0 - 2026-11-24
 
 First public release.

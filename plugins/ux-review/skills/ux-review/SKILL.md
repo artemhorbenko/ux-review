@@ -40,6 +40,7 @@ Record each answer in `answers`; a skipped one shows "Skipped" plus the assumpti
 - **Repeat at phone width** (390px) for the key steps; if the window cannot be resized, use a 390px same-origin frame or a headless browser (`references/data-sources.md`).
 - **Keyboard pass**: Tab through the header and one key task and log the focus order.
 - **Read forms and hidden content from the page**: fields, required, input types, autocomplete, labels; collapsed FAQ; menu items.
+- **Stay on the domain the person named.** Subdomains (`get.`, `go.`, `lp.`, `staging.`) are often old A/B variants or staging copies; if search sends the persona there, note it and ask the owner, but judge the main site. Before saying a page does not exist, check the menus, the sitemap and likely addresses with a same-origin request (`references/data-sources.md`).
 - **Never submit real forms**, payments, messages, sign-ups or newsletter boxes, and reject non-essential cookies. Stop before the final button; mark that step `f: null` (not tested) and the task outcome `stop`.
 - **Screenshots, recordings, analytics** the user shares count as evidence; note the date range.
 
@@ -86,6 +87,7 @@ Deliver one self-contained HTML page: publish it as an artifact when an artifact
 ## Rules
 - Every issue points to a page and step you saw, or is clearly marked as a hypothesis.
 - Never submit real forms, payments or messages; never log in to someone's account; reject non-essential cookies.
+- Judge the domain the person named; a page found on another subdomain is a note, not the product.
 - Never invent numbers, quotes, testimonials, response times or prices, in findings or in suggested copy. Unknown metrics show "no data" (`v: null` in a KPI).
 - Do not recommend dark patterns (fake urgency, confirmshaming, pre-ticked consent, hidden costs) even if they would raise conversion.
 - Prefer fewer, sharper issues over long lists; merge duplicates that share a cause.

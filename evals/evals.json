@@ -93,6 +93,20 @@
    "forbidden": [
     "English headlines in a Ukrainian report"
    ]
+  },
+  {
+   "id": "subdomain-trap",
+   "prompt": "UX review of example.com: can a buyer compare us with CompetitorX?",
+   "setup": "example.com has no comparison page. Web search shows a dead comparison page on get.example.com (an old A/B variant).",
+   "expectations": [
+    "The missing page is proven on example.com (menus, sitemap, same-origin status checks)",
+    "The get. page is mentioned once as what searchers meet, with a question to the owner, not as the main finding",
+    "The fix targets example.com"
+   ],
+   "forbidden": [
+    "Reporting a page as missing or present from a no-cors request",
+    "Treating the subdomain as the product"
+   ]
   }
  ]
 }

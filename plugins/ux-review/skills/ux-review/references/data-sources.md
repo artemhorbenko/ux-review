@@ -21,6 +21,8 @@ Confidence in the report is the average of ok = 1, demo = 0.6, no = 0, so list o
   - Tab through the header and the key task with the keyboard and log the focus order (a `focusin` listener that records each element's name is enough);
   - read forms with a script: visible fields, required, `type`, `autocomplete`, labels;
   - read hidden content (collapsed FAQ, menus) from the DOM rather than guessing.
+- **Stay on the product's domain.** Review the domain the person named (and its `www`). Subdomains such as `get.`, `go.`, `lp.`, `staging.` or `old.` are often A/B-test variants, ad landing pages or staging copies: never walk them as the product. If search results send the persona there, note it once (it is what a searcher meets) and ask the owner what the subdomain is, instead of making it a finding.
+- **Prove that a page is missing on the main domain.** Check the navigation and footer, the sitemap (`/sitemap_index.xml`, `/wp-sitemap.xml`, `/sitemap.xml`) and likely addresses with a same-origin `fetch()` from a page of that domain, which returns the real status. A cross-origin or `no-cors` request returns an opaque response with status 0: it proves nothing, so never report a page as present or missing from it.
 - **Don't:** submit real forms, payments, messages, sign-ups, chats or newsletter boxes; accept cookies beyond what is needed (reject non-essential); log in to someone's account.
 - **Fallback:** the owner's screenshots or a screen recording; mark the walkthrough `demo`.
 - **Feeds:** every lens, the walkthrough and the friction strip.
