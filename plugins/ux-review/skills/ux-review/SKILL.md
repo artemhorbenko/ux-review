@@ -9,7 +9,7 @@ Walk the tasks that matter to one persona, step by step, and find where people c
 
 Respond in the user's language, and write the report in it too.
 
-**One product per review.** Walk and judge only the product the person named, on its own domain. Do not open, audit, quote or compare competitors' sites, review sites or third-party comparison pages, and do not add competitor findings. If a requested task is about a competitor ("compare us with X"), say in one line that it is out of scope for a UX review, drop it, and offer a task on the product itself instead (for example, checking its plans or integrations).
+**One product per review.** Walk and judge only the product the person named, on its own domain. Do not open, audit, quote or compare competitors' sites, review sites or third-party comparison pages, and do not add competitor findings. If a requested task is about a competitor ("compare us with X"), reframe it as a task on the product itself and say so in one line: **find why to choose this product over alternatives** — is there a comparison or "why us" page, and can it be reached from the navigation? Judge whether the reasons are findable, provable and in one place, not whether they beat the competitor.
 
 **Scope.** Can people find, understand, decide and act? Leave visual polish to a UI review (`ui-review`) and strategy, pricing models and growth to `product-lens-audit`. A visual or pricing point is in scope only when it blocks a task (see `references/lenses.md`).
 
@@ -30,7 +30,7 @@ First look for saved context: a `ux-review-context.md` or a previous `audit.json
 
 Skip any question the request already answers. Ask the rest in one round, with a multiple-choice tool when available (AskUserQuestion or similar) and a "Skip" option on each; otherwise in plain text. Never block: if the person skips or does not answer, state the assumption and continue.
 - **Who is the user** (role, company size, device, first visit or returning)?
-- **Which 3-7 tasks matter most** right now (in the user's words, with an end point)?
+- **Which 3-7 tasks matter most** right now (in the user's words, with an end point)? For a buyer, include "find why to choose us over alternatives" unless the person says otherwise.
 - **What data can you share**: analytics, recordings, support questions, earlier tests? Screenshots are fine.
 - **What was tested or changed already**, and anything you must not touch (a form that must not be submitted, a login)?
 

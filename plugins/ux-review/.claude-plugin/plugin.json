@@ -1,6 +1,6 @@
 {
   "name": "ux-review",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "UX review of a website or app through 10 UX lenses (Nielsen's heuristics, task walkthroughs, information architecture, microcopy, forms, trust, accessibility basics, mobile ergonomics, decision support, error and empty states). Delivers a visual report with friction per task step, prioritized fixes, a 5-task usability-test plan and a hands-off file for AI agents.",
   "author": {
     "name": "Artem Horbenko",

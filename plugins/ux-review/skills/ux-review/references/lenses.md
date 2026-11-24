@@ -24,7 +24,7 @@ Groups: **base** foundations, **find** find and understand, **act** act and reco
 This skill is about whether people can **find, understand, decide and act**. Leave out:
 - visual polish (spacing, colour harmony, typography taste, brand look) — that belongs to a UI review (`ui-review`);
 - strategy (pricing model, market, growth loops, business model) — that belongs to `product-lens-audit`;
-- other products: the review covers one product. Competitors' sites, review sites and comparisons with other products are out of scope.
+- other products: the review covers one product. Competitors' sites, review sites and comparisons with other products are out of scope. What is in scope is the product's own answer to "why choose you": whether its comparison or "why us" page exists and can be found.
 
 A visual problem is in scope only when it stops a task: low contrast that hides a button, a carousel that hides the only CTA, a sticky banner that covers a form field. A pricing problem is in scope only as decision support: can the person find a price or what it depends on, not whether the price is right.
 
@@ -61,7 +61,7 @@ A visual problem is in scope only when it stops a task: low contrast that hides 
 ## Decide with confidence
 
 - **Trust and reassurance** — At the moment of commitment (form, price, sign-up) is there a reason to believe? Named customers with logos and roles, results with numbers and context, security and privacy notes near the form, what happens next, response time. Testimonials without a company, or proof far from the decision, are weak.
-- **Decision support** — Can the person find a price or what it depends on, compare the product's own plans side by side, and see which plan, setup path or integration fits them? Check: pricing reachable from the main navigation, ranges that cover the person's case, the recommended plan visible first on phones, case studies filterable by the person's segment, integration pages that say who sets things up and how long it takes.
+- **Decision support** — Can the person find a price or what it depends on, compare the product's own plans side by side, find why to choose this product over alternatives, and see which plan, setup path or integration fits them? Check: pricing reachable from the main navigation, ranges that cover the person's case, the recommended plan visible first on phones, case studies filterable by the person's segment, integration pages that say who sets things up and how long it takes; a comparison or "why us" page that exists, is linked from the main navigation, puts the reasons in one place and backs each with proof (claims like "only we…" with nothing next to them count against it).
 
 ## Reach everyone
 

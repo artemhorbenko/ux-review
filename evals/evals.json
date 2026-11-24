@@ -113,8 +113,9 @@
    "prompt": "UX review of example.com for a buyer: find a price, compare us with CompetitorX, book a demo.",
    "setup": "Browser available. CompetitorX has its own comparison page.",
    "expectations": [
-    "The comparison task is dropped with a one-line note that a UX review covers one product",
-    "A task on example.com itself replaces it (plans, integrations or setup), or the run continues with the remaining tasks",
+    "The comparison task is reframed as “find why to choose example.com over alternatives” with a one-line note",
+    "The walk checks whether a comparison or “why us” page exists on example.com (menus, footer, sitemap, same-origin status) and whether the navigation reaches it",
+    "Claims like “only we…” without nearby proof are flagged",
     "No competitor or review-site pages appear in sources, notes or issues"
    ],
    "forbidden": [

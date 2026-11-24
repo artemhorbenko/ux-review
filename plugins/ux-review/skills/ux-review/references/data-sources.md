@@ -47,7 +47,7 @@ Confidence in the report is the average of ok = 1, demo = 0.6, no = 0, so list o
 
 ## Outside the product
 
-Not used. The review covers one product: do not open or quote competitors' sites, review sites (G2, Capterra) or third-party comparisons, and do not walk tasks that start on another product. A web search is allowed only to find the product's own pages (for example its help centre on a separate domain the product links to).
+Not used. The review covers one product: do not open or quote competitors' sites, review sites (G2, Capterra) or third-party comparisons, and do not walk tasks that start on another product. A request to compare with a competitor becomes a task on the product: find its comparison or "why us" page and check it is reachable from the navigation (menus, footer, sitemap). A web search is allowed only to find the product's own pages (for example its help centre on a separate domain the product links to).
 
 ## Support and sales
 

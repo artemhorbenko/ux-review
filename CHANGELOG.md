@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0 - 2026-11-24
+
+- A competitor task is reframed, not dropped: "find why to choose this product over alternatives" — is there a comparison or "why us" page on the product, and can the navigation reach it?
+- Decision support checks that page: exists, linked from the main navigation, reasons in one place, each backed by proof.
+- Start questions suggest the why-us task for buyer personas.
+
 ## 1.1.0 - 2026-11-24
 
 - One product per review: no competitors' sites, review sites or comparisons with other products; a competitor task is dropped with a note and replaced with a task on the product itself.

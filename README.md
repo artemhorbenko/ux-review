@@ -2,7 +2,7 @@
 
 A Claude skill that walks the key tasks of a website, web app, SaaS flow or app screenshots **as your user**, step by step, and turns what breaks into a visual report, a prioritized fix list, a **5-task usability-test plan** and a **hands-off file** an AI agent can implement.
 
-It reviews **one product at a time** and answers one question: **can people find, understand, decide and act?** Competitors' sites and comparisons with other products are out of scope. Visual polish belongs to a UI review; strategy, pricing models and growth belong to [product-lens-audit](https://github.com/artemhorbenko/product-lens-audit).
+It reviews **one product at a time** and answers one question: **can people find, understand, decide and act?** Competitors' sites and comparisons with other products are out of scope; a "compare us with X" task becomes "find why to choose us": is there a comparison or "why us" page, and can the navigation reach it? Visual polish belongs to a UI review; strategy, pricing models and growth belong to [product-lens-audit](https://github.com/artemhorbenko/product-lens-audit).
 
 **Live demo:** [English](https://claude.ai/artifact/XFAybtaGhMsL5E9EEuadcA) (fictional shipping-label app "Parcelly", made-up data).
 
@@ -19,7 +19,7 @@ It reviews **one product at a time** and answers one question: **can people find
 | Act and recover | **Forms and friction** | Is every field needed, labelled and autofill-ready? |
 | | **Error and empty states** | Does every error and empty screen say what happened and what to do next? |
 | Decide with confidence | **Trust and reassurance** | Is there a reason to believe at the moment of commitment? |
-| | **Decision support** | Can people find a price, compare the plans and see what fits them? |
+| | **Decision support** | Can people find a price, compare the plans, find why to choose the product, and see what fits them? |
 | Reach everyone | **Accessibility basics** | Keyboard, focus, labels, names, state — the basics that block tasks. |
 | | **Mobile ergonomics** | Does the task work at 390px: tap targets, keypads, nothing covering the action? |
 
@@ -64,7 +64,7 @@ Cognitive walkthrough (know / see / recover), Nielsen's severity scale (1 cosmet
 /plugin install ux-review@ux-review
 ```
 
-Then ask, for example: *"UX review of example.com for a first-time buyer: find the price, compare plans, start a trial"*.
+Then ask, for example: *"UX review of example.com for a first-time buyer: find the price, find why to choose us over alternatives, start a trial"*.
 
 ### Claude app (claude.ai, desktop, mobile)
 
@@ -156,7 +156,7 @@ MIT - see [LICENSE](LICENSE).
 - **Основа:** 10 евристик Нільсена (H1-H10), проходження ключових задач (когнітивний walkthrough: чи зрозуміло, що робити; чи видно, що спрацювало; чи можна виправити помилку).
 - **Знайти й зрозуміти:** інформаційна архітектура й навігація, ясність контенту й мікрокопірайтинг.
 - **Діяти й виправляти:** форми й тертя, стани помилок і порожні стани.
-- **Вирішити впевнено:** довіра, підтримка рішення (ціна, тарифи, що підходить).
+- **Вирішити впевнено:** довіра, підтримка рішення (ціна, тарифи, чому обрати саме цей продукт — чи є сторінка порівняння або «why us» і чи веде до неї навігація).
 - **Доступно всім:** базова доступність (клавіатура, фокус, підписи), мобільна ергономіка.
 
 **Що в звіті:** задачі як рядки кроків, забарвлені за тертям; таблиці walkthrough; розбивка за евристиками; проблеми за ICE із серйозністю, задачею й кроком; повний план із запропонованою зміною та перевіркою з користувачами; план юзабіліті-тесту на 5 задач; джерела й впевненість. Окремо - `handoff.md` для AI-агента.
