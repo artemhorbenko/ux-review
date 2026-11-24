@@ -1,0 +1,13 @@
+{
+  "name": "ux-review",
+  "version": "1.0.0",
+  "description": "UX review of a website or app through 10 UX lenses (Nielsen's heuristics, task walkthroughs, information architecture, microcopy, forms, trust, accessibility basics, mobile ergonomics, decision support, error and empty states). Delivers a visual report with friction per task step, prioritized fixes, a 5-task usability-test plan and a hands-off file for AI agents.",
+  "author": {
+    "name": "Artem Horbenko",
+    "url": "https://github.com/artemhorbenko"
+  },
+  "homepage": "https://github.com/artemhorbenko/ux-review",
+  "repository": "https://github.com/artemhorbenko/ux-review",
+  "license": "MIT",
+  "keywords": ["ux", "usability", "heuristics", "nielsen", "cognitive-walkthrough", "accessibility", "audit", "report"]
+}

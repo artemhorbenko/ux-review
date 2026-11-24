@@ -1,0 +1,32 @@
+name: Report looks broken
+description: The HTML report renders badly, a chart is empty, tooltips or filters don't work
+labels: ["bug", "report"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: What you see, and what you expected instead.
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Where
+      multiple: true
+      options: [Desktop, Tablet, Phone, Dark theme]
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and app
+      placeholder: "e.g. Safari on iPhone, Claude app; Chrome 131 on macOS"
+  - type: textarea
+    id: check
+    attributes:
+      label: Output of check_report.py (if you ran it)
+      render: text
+  - type: textarea
+    id: screens
+    attributes:
+      label: Screenshots
+      description: Drag images here. Remove anything private first.

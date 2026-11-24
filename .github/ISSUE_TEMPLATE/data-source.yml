@@ -1,0 +1,21 @@
+name: Support a new data source
+description: Suggest a tool the review should read from (session recordings, heatmaps, accessibility scanners, support tickets)
+labels: ["data-source"]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Tool or service
+      placeholder: "e.g. Hotjar, Microsoft Clarity, axe, Maze, Zendesk"
+    validations:
+      required: true
+  - type: input
+    id: access
+    attributes:
+      label: How Claude can reach it
+      placeholder: "MCP server name/link, API, export file, screenshots"
+  - type: textarea
+    id: value
+    attributes:
+      label: What it would add
+      description: Which lenses or tasks it would make better, and which numbers to read from it.

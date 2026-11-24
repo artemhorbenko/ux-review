@@ -1,0 +1,70 @@
+[
+ {
+  "query": "Can you do a UX review of our signup flow?",
+  "should_trigger": true
+ },
+ {
+  "query": "Run a heuristic evaluation of example.com",
+  "should_trigger": true
+ },
+ {
+  "query": "Why can't people find the pricing page on my site?",
+  "should_trigger": true
+ },
+ {
+  "query": "Check our checkout for usability problems on mobile before launch",
+  "should_trigger": true
+ },
+ {
+  "query": "Do a cognitive walkthrough of booking a demo on this site",
+  "should_trigger": true
+ },
+ {
+  "query": "Зроби UX-аудит мого сайту",
+  "should_trigger": true
+ },
+ {
+  "query": "Подивись, чи зручно на сайті знайти ціну й записатися на демо",
+  "should_trigger": true
+ },
+ {
+  "query": "Our onboarding has a lot of drop-off; review the UX, screenshots attached",
+  "should_trigger": true
+ },
+ {
+  "query": "Write a usability test plan for our site's key tasks and list the UX issues",
+  "should_trigger": true
+ },
+ {
+  "query": "Make our landing page look more modern and pick better colours",
+  "should_trigger": false
+ },
+ {
+  "query": "Should we switch to usage-based pricing?",
+  "should_trigger": false
+ },
+ {
+  "query": "Fix the bug where the modal doesn't close on Escape",
+  "should_trigger": false
+ },
+ {
+  "query": "What are Nielsen's heuristics?",
+  "should_trigger": false
+ },
+ {
+  "query": "Audit our product's growth strategy through JTBD and growth loops",
+  "should_trigger": false
+ },
+ {
+  "query": "Run an SEO audit of example.com",
+  "should_trigger": false
+ },
+ {
+  "query": "Write a blog post about UX best practices",
+  "should_trigger": false
+ },
+ {
+  "query": "Build me a signup form in React",
+  "should_trigger": false
+ }
+]

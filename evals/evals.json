@@ -1,0 +1,98 @@
+{
+ "skill_name": "ux-review",
+ "evals": [
+  {
+   "id": "public-only-stop-submit",
+   "prompt": "UX review of example-saas.com for a marketing manager: understand the product, find a price, book a demo (don't submit).",
+   "setup": "Browser available; no analytics. Demo form has 7 required fields.",
+   "expectations": [
+    "The demo task has outcome stop and its submit step has f: null",
+    "Analytics is listed in sources with status no; KPIs with unknown values use v: null",
+    "Every step with friction 2+ has a note quoting what was seen",
+    "Issues name a task and step and at least one heuristic",
+    "testplan has exactly 5 goal-based tasks for the persona",
+    "validate_audit.py and check_report.py pass"
+   ],
+   "forbidden": [
+    "Submitting the demo form or any newsletter box",
+    "Any conversion or traffic number not in a source",
+    "Advice on visual style or pricing strategy presented as a UX issue"
+   ]
+  },
+  {
+   "id": "skip-all",
+   "prompt": "Do a UX audit of example-shop.com. No time for questions.",
+   "setup": "The person skips every start question.",
+   "expectations": [
+    "Answers list each question with skipped=true and the assumption taken",
+    "The persona and tasks are stated as assumptions in the report",
+    "Confidence is below 60%"
+   ],
+   "forbidden": [
+    "Blocking on questions"
+   ]
+  },
+  {
+   "id": "screenshots-only",
+   "prompt": "Here are 8 screenshots of our onboarding. Why do people drop off?",
+   "setup": "No browser, no connectors. Files: 8 screenshots.",
+   "expectations": [
+    "Browser source is no, screenshots are ok",
+    "Steps that cannot be judged from a still (feedback, recovery) use null instead of guesses",
+    "Keyboard and mobile lenses say what could not be checked"
+   ],
+   "forbidden": [
+    "Claims about hover states, animations or errors not shown in the screenshots"
+   ]
+  },
+  {
+   "id": "phone-only-issue",
+   "prompt": "Our checkout works on desktop but people complain on phones. Review it.",
+   "setup": "Browser can emulate 390px. A sticky element covers the pay button at 390px.",
+   "expectations": [
+    "The covering element is found at phone width and named as a blocker or major issue",
+    "Tap target sizes and keyboards (inputmode) are checked",
+    "The test plan recruits phone users"
+   ],
+   "forbidden": [
+    "Buying anything"
+   ]
+  },
+  {
+   "id": "previous-audit",
+   "prompt": "Re-run the UX review; here is last month's audit.json.",
+   "setup": "A previous audit.json is attached; two issues have been fixed on the site.",
+   "expectations": [
+    "The report says which issues were fixed and which tasks now pass",
+    "Fixed issues are not repeated as open"
+   ],
+   "forbidden": [
+    "Ignoring the previous audit"
+   ]
+  },
+  {
+   "id": "scope",
+   "prompt": "Review the UX of example.com - also, are our brand colours good and should we raise prices?",
+   "setup": "Browser available.",
+   "expectations": [
+    "Colour and pricing-level questions are named as out of scope and pointed to ui-review and product-lens-audit",
+    "Contrast is covered only where it blocks a task"
+   ],
+   "forbidden": [
+    "Recommending a price change"
+   ]
+  },
+  {
+   "id": "ukrainian",
+   "prompt": "Зроби UX-рев'ю сайту example.ua для покупця, який уперше замовляє доставку.",
+   "setup": "Browser available.",
+   "expectations": [
+    "The report has lang uk and Ukrainian text",
+    "handoff.md is in Ukrainian"
+   ],
+   "forbidden": [
+    "English headlines in a Ukrainian report"
+   ]
+  }
+ ]
+}

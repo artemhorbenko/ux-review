@@ -1,0 +1,4 @@
+report-check/
+dist/
+__pycache__/
+.DS_Store

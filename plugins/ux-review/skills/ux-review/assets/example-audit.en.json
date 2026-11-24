@@ -1,0 +1,344 @@
+{
+ "lang": "en",
+ "title": "UX review: demo report (Parcelly)",
+ "persona": "Owner of a small online shop shipping 50–300 parcels a month; first visit, often on a phone between orders.",
+ "text": {
+  "label": "Demo report: “Parcelly” is a fictional shipping-label app; all pages, numbers and findings are made up",
+  "headline": "Shop owners give up at the [[label price]]: it appears only after sign-up",
+  "lead": "Three of five tasks finished, but the one that decides a purchase — what a label costs — fails on the public site, and connecting a store hides its error behind a spinner. Fix the price answer first, then the connection error and the phone checkout.",
+  "tasksNote": "Each square is one step of a task, coloured by friction. Sign-up was stopped before the final button on purpose, so that step is marked “not tested”.",
+  "lensesH": "Decision support and error states are the weakest lenses",
+  "lensesP": "Scores 0–100 show how well the product already does on each UX lens; below 40 means people struggle. For a first-time shop owner, decision support, forms and mobile weigh most.",
+  "walkH": "Five tasks, step by step, with three questions each",
+  "walkP": "At every step: does the person know what to do, do they see that it worked, and can they recover from a wrong turn? Friction: 0 none, 1 minor, 2 major, 3 blocker.",
+  "heurH": "Visibility of status and error recovery break most",
+  "heurP": "How many issues break each of Nielsen's 10 heuristics, and the worst severity among them.",
+  "matrixH": "{qw} quick wins with high impact and low effort",
+  "matrixP": "Each dot is an issue from the table below. Filled dots are fixes; outlined red dots are rethinks that need a prototype and a test first.",
+  "opsH": "{n} issues, ordered by ICE",
+  "opsP": "Severity says how bad an issue is for the person (1 cosmetic to 4 blocker). ICE = impact × confidence × ease decides what to do first. The top three are highlighted.",
+  "nextH": "Three fixes for the next sprint",
+  "nextP": "Each has a hypothesis, a success metric and the cheapest way to check it.",
+  "planH": "Full plan: all {n} issues, best value first",
+  "planP": "For each issue: what we saw, the proposed change, steps, metric, effort, risk and a usability task that confirms the fix. The top three also have alternatives, a success threshold and a pre-mortem.",
+  "testH": "Run these 5 tasks with 5 shop owners",
+  "testP": "The walkthrough is one reviewer's judgment. This plan checks it with people who match the persona, before and after the fixes.",
+  "dataH": "Confidence is medium: real-user data is a sample",
+  "dataP": "Findings come from walking the product, a keyboard pass and a sample of analytics and support tickets. No session recordings and no tests with real users yet.",
+  "how": [
+   "The owner named the persona and five tasks; one start question was skipped (see the answers).",
+   "Each task was walked in a browser at 1280px and repeated on a 390px phone view; nothing was submitted or paid.",
+   "Forms and error messages were read from the page; the store connection was tried with a test store.",
+   "The header and checkout were walked with the keyboard; an accessibility scanner ran on four pages.",
+   "Issues were tagged with Nielsen's heuristics, given a severity and ranked by ICE; the top three got alternatives, a threshold and a pre-mortem."
+  ],
+  "footer": "demo data"
+ },
+ "kpis": [
+  {"v": "{done} of {tasks}", "l": "Key tasks done without trouble", "hot": true},
+  {"v": "{blockers}", "l": "Blocking steps across the tasks"},
+  {"v": "41%", "l": "Of trial sign-ups start on a phone", "src": "Analytics (sample)"},
+  {"v": null, "l": "Store-connection success rate"}
+ ],
+ "tasks": [
+  {
+   "id": "T1", "t": "Understand what Parcelly does", "short": "home page",
+   "goal": "Say in one sentence what the app does and whether it fits a small shop.",
+   "out": "ok",
+   "steps": [
+    {"s": "Read the first screen", "page": "/", "f": 0, "k": "y", "see": "y", "rec": "y", "note": "“Print cheaper shipping labels from your shop, in two clicks” names the job and the audience."},
+    {"s": "Watch the 30-second demo", "page": "/", "f": 1, "k": "y", "see": "p", "rec": "y", "note": "The video autoplays without captions; on a phone it starts muted with no hint that it has sound."},
+    {"s": "Check which shop platforms work", "page": "/", "f": 0, "k": "y", "see": "y", "rec": "y", "note": "Logos of four platforms with a “See all integrations” link."}
+   ]
+  },
+  {
+   "id": "T2", "t": "Find what a label costs", "short": "pricing",
+   "goal": "Know what 200 labels a month would cost, all in.",
+   "out": "fail",
+   "steps": [
+    {"s": "Open Pricing from the header", "page": "/pricing", "f": 0, "k": "y", "see": "y", "rec": "y", "note": "Three plans with monthly fees."},
+    {"s": "Find the cost per label", "page": "/pricing", "f": 3, "k": "n", "see": "n", "rec": "p", "note": "Plans show the monthly fee only; label prices say “See your rates after sign-up”."},
+    {"s": "Estimate the monthly total", "page": "/pricing", "f": 3, "k": "n", "see": "n", "rec": "n", "note": "No calculator and no example; the total cannot be worked out before creating an account."},
+    {"s": "Look for the answer in help", "page": "/help", "f": 2, "k": "p", "see": "p", "rec": "y", "note": "The help search for “label price” returns 0 results; the article is titled “Carrier rates explained”."}
+   ]
+  },
+  {
+   "id": "T3", "t": "Start a free trial", "short": "stopped before submit",
+   "goal": "Create an account and know what happens next.",
+   "out": "stop",
+   "steps": [
+    {"s": "Click “Start free trial”", "page": "/", "f": 0, "k": "y", "see": "y", "rec": "y", "note": "Visible on every page."},
+    {"s": "Fill in the sign-up form", "page": "/signup", "f": 2, "k": "y", "see": "p", "rec": "p", "note": "9 fields, 6 required, including company VAT number and “How did you hear about us?”. Password rules appear only after an error."},
+    {"s": "Check whether a card is needed", "page": "/signup", "f": 1, "k": "p", "see": "y", "rec": "y", "note": "“No card needed” is in the FAQ, not next to the form."},
+    {"s": "Press “Create account”", "page": "/signup", "f": null, "k": "y", "see": null, "rec": null, "note": "Not pressed by rule; the confirmation email was not tested."}
+   ]
+  },
+  {
+   "id": "T4", "t": "Connect my shop", "short": "test store",
+   "goal": "Connect a store and see my orders in Parcelly.",
+   "out": "hard",
+   "steps": [
+    {"s": "Choose the shop platform", "page": "/app/connect", "f": 0, "k": "y", "see": "y", "rec": "y", "note": "Large platform tiles."},
+    {"s": "Approve access in the shop", "page": "platform pop-up", "f": 1, "k": "p", "see": "y", "rec": "y", "note": "The pop-up asks for 11 permissions with no note on why each is needed."},
+    {"s": "Wait for orders to import", "page": "/app/orders", "f": 3, "k": "n", "see": "n", "rec": "n", "note": "With a store that had no paid orders, the spinner ran for over 2 minutes and never said “No orders yet”."},
+    {"s": "Retry the connection", "page": "/app/settings", "f": 2, "k": "p", "see": "p", "rec": "p", "note": "“Reconnect” sits under Settings › Advanced; the error log says “Sync job 4 failed (code 0)”."}
+   ]
+  },
+  {
+   "id": "T5", "t": "Buy and print the first label", "short": "checkout on a phone",
+   "goal": "Buy a label for one order and print it.",
+   "out": "hard",
+   "steps": [
+    {"s": "Open an order and pick a carrier", "page": "/app/orders/1", "f": 1, "k": "y", "see": "y", "rec": "y", "note": "Carriers sorted by name, not by price or delivery time."},
+    {"s": "Enter the parcel size", "page": "/app/orders/1", "f": 2, "k": "p", "see": "p", "rec": "y", "note": "Weight in grams and size in centimetres with no saved presets; on a phone the number fields open a full keyboard."},
+    {"s": "Pay for the label", "page": "/app/checkout", "f": 2, "k": "y", "see": "p", "rec": "p", "note": "At 390px the “Buy label” button sits under a sticky chat bubble; tapping it opens the chat."},
+    {"s": "Print the label", "page": "/app/label", "f": 0, "k": "y", "see": "y", "rec": "y", "note": "PDF opens with a clear “Print” button and a 4×6 option."}
+   ]
+  }
+ ],
+ "lenses": [
+  {"k": "Heuristics", "n": "Nielsen's heuristics", "i": "heur", "g": "base", "s": 52},
+  {"k": "Tasks", "n": "Task walkthroughs", "i": "walk", "g": "base", "s": 48},
+  {"k": "IA", "n": "IA and navigation", "i": "ia", "g": "find", "s": 66},
+  {"k": "Microcopy", "n": "Content and microcopy", "i": "copy", "g": "find", "s": 62},
+  {"k": "Forms", "n": "Forms and friction", "i": "form", "g": "act", "s": 44},
+  {"k": "States", "n": "Error and empty states", "i": "state", "g": "act", "s": 28},
+  {"k": "Trust", "n": "Trust and reassurance", "i": "trust", "g": "decide", "s": 58},
+  {"k": "Decision", "n": "Decision support", "i": "dec", "g": "decide", "s": 26},
+  {"k": "Access", "n": "Accessibility basics", "i": "a11y", "g": "reach", "s": 55},
+  {"k": "Mobile", "n": "Mobile ergonomics", "i": "mob", "g": "reach", "s": 42}
+ ],
+ "ops": [
+  {"t": "Show label prices and a monthly cost calculator on the pricing page", "l": "dec", "ln": "Decision support", "x": "opt", "ev": "obs", "sev": 4, "task": "T2", "step": 2, "h": ["H1", "H6"], "I": 9, "C": 8, "E": 6},
+  {"t": "Replace the endless import spinner with a clear empty state", "l": "state", "ln": "Error states", "x": "opt", "ev": "obs", "sev": 4, "task": "T4", "step": 3, "h": ["H1", "H9"], "I": 8, "C": 8, "E": 8},
+  {"t": "Move the chat bubble off the “Buy label” button on phones", "l": "mob", "ln": "Mobile", "x": "opt", "ev": "obs", "sev": 3, "task": "T5", "step": 3, "h": ["H5", "H8"], "I": 7, "C": 9, "E": 9},
+  {"t": "Cut sign-up to 3 fields and show password rules up front", "l": "form", "ln": "Forms", "x": "opt", "ev": "obs", "sev": 3, "task": "T3", "step": 2, "h": ["H5", "H6"], "I": 7, "C": 7, "E": 7},
+  {"t": "Write a plain error and a visible “Reconnect” button for failed syncs", "l": "state", "ln": "Error states", "x": "opt", "ev": "obs", "sev": 3, "task": "T4", "step": 4, "h": ["H9", "H3"], "I": 7, "C": 7, "E": 7},
+  {"t": "Say “No card needed” next to the sign-up button", "l": "trust", "ln": "Trust", "x": "opt", "ev": "obs", "sev": 2, "task": "T3", "step": 3, "h": ["H6"], "I": 5, "C": 7, "E": 10},
+  {"t": "Sort carriers by price and add parcel presets", "l": "form", "ln": "Forms", "x": "opt", "ev": "obs", "sev": 2, "task": "T5", "step": 2, "h": ["H7", "H6"], "I": 6, "C": 7, "E": 6},
+  {"t": "Use number keypads and units in the parcel fields on phones", "l": "mob", "ln": "Mobile", "x": "opt", "ev": "obs", "sev": 2, "task": "T5", "step": 2, "h": ["H7"], "I": 4, "C": 9, "E": 9},
+  {"t": "Make help search understand shop owners' words", "l": "copy", "ln": "Microcopy", "x": "opt", "ev": "obs", "sev": 2, "task": "T2", "step": 4, "h": ["H2", "H10"], "I": 5, "C": 6, "E": 8},
+  {"t": "Explain each store permission in one line", "l": "trust", "ln": "Trust", "x": "opt", "ev": "hyp", "sev": 2, "task": "T4", "step": 2, "h": ["H10"], "I": 4, "C": 5, "E": 7},
+  {"t": "Add captions and a sound hint to the demo video", "l": "a11y", "ln": "Accessibility", "x": "opt", "ev": "obs", "sev": 1, "task": "T1", "step": 2, "h": ["H1"], "I": 3, "C": 8, "E": 8},
+  {"t": "A rates preview without an account: paste a postcode, see real label prices", "l": "dec", "ln": "Decision support", "x": "ex", "ev": "hyp", "sev": 3, "task": "T2", "step": 3, "h": ["H1", "H6"], "I": 8, "C": 4, "E": 3}
+ ],
+ "plans": {
+  "1": {"h": "If shop owners can see label prices and a monthly total before signing up, more of them will start a trial, because the price is the question that decides whether to try.", "m": "Pricing page → trial start rate; share of test participants who can state a monthly total", "t": "Add a static rates table and a 3-input calculator; compare 2 weeks of trial starts from /pricing with the 2 weeks before"},
+  "2": {"h": "If an empty store shows “No paid orders yet — create a test order” within 10 seconds, new users will not abandon the connection step, because they will know it worked.", "m": "Share of new accounts that reach the first order screen in the first session", "t": "Ship the empty state behind a flag for half of new accounts for 2 weeks"},
+  "3": {"h": "If the chat bubble moves above the bottom bar during checkout, phone users will reach “Buy label” on the first tap, because nothing covers it.", "m": "Mis-taps that open chat on /app/checkout; label purchases from phones", "t": "One-line CSS change; compare chat opens from checkout a week before and after"}
+ },
+ "detail": {
+  "1": {
+   "why": "/pricing lists three monthly plans; label prices say “See your rates after sign-up”. There is no calculator or example. Support sample: 23 of 120 pre-sale tickets ask what a label costs.",
+   "change": "A rates block under the plans: typical label prices per carrier for common parcel sizes, and a calculator (labels per month, average weight, destination) that shows the monthly total including the plan fee.",
+   "steps": [
+    "Agree with carriers which rates may be shown publicly; show ranges where exact rates differ by account.",
+    "Add a rates table for 3 parcel sizes and the 4 main carriers.",
+    "Add a calculator with 3 inputs that returns plan + labels = monthly total.",
+    "Link “What will 200 labels cost?” from the home page and the help article."
+   ],
+   "metric": "Trial starts per 100 pricing-page visits; pre-sale tickets about label price",
+   "effort": "3–5 days plus carrier approval",
+   "risk": "Shown rates must stay current: pull them from the same source as the app, never type them in.",
+   "test": {"task": "“You ship about 200 small parcels a month. How much would Parcelly cost you?” Start on the home page.", "success": "States a monthly total within 2 minutes without creating an account.", "watch": "Whether they trust the number; which inputs confuse them."},
+   "alt": [
+    "A “from $0.xx per label” line only — rejected: still no total for the owner's volume.",
+    "A rates PDF — rejected: does not answer “what will I pay” and goes stale."
+   ],
+   "rtype": "Value",
+   "thr": "Trial starts from /pricing up by at least 15%, and 4 of 5 test participants state a total within 2 minutes",
+   "pm": "It failed because the shown rates differed from the rates after sign-up and users felt misled. So pull the table from the live rate service and label it “typical rates, yours may be lower”.",
+   "copy": [
+    "“What will 200 labels cost? Work it out in 10 seconds”: uses the persona's own question.",
+    "“Plan + labels = your monthly total”: explains the two parts of the price in one line."
+   ],
+   "accept": ["/pricing shows label prices without an account", "The calculator total equals plan fee + labels × rate from the live rate service", "Works at 390px with number keypads"]
+  },
+  "2": {
+   "why": "After connecting a store with no paid orders, /app/orders showed a spinner for over 2 minutes and never changed. Nothing said the connection worked or that the store simply had no orders.",
+   "change": "Within 10 seconds of connecting: either the imported orders, or an empty state saying “Connected. No paid orders yet” with a button to create a test order and a link to help.",
+   "steps": [
+    "Return an explicit “zero orders” result from the import instead of waiting.",
+    "Show the empty state with a test-order button.",
+    "Time out after 30 seconds with a plain error and “Try again”.",
+    "Log empty, error and timeout cases separately."
+   ],
+   "metric": "Share of new accounts that reach the first order screen in the first session",
+   "effort": "2–3 days",
+   "risk": "Showing “No orders” while a slow import is still running; wait for the import's own result.",
+   "test": {"task": "Connect this test store (it has no paid orders) and tell me when you are ready to ship.", "success": "Understands within 15 seconds that the store is connected and empty.", "watch": "Refreshing the page; going back to connect again."},
+   "alt": [
+    "A progress bar — rejected: there is nothing to show progress on for an empty store.",
+    "An email when the import finishes — kept as a later addition for large stores."
+   ],
+   "rtype": "Usability",
+   "thr": "Abandonment at the import step down by half, and 5 of 5 participants understand the empty state",
+   "pm": "It failed because large stores import slowly and now see a false timeout. So set the timeout by order count and show progress for big imports.",
+   "accept": ["An empty store shows the empty state within 10 seconds", "A failed import shows a plain error and “Try again” within 30 seconds"]
+  },
+  "3": {
+   "why": "At 390px the sticky chat bubble covers the right half of the “Buy label” button on /app/checkout; tapping it opened the chat. Analytics sample: 41% of trial sign-ups start on a phone.",
+   "change": "On checkout screens the chat bubble moves above the bottom action bar, or collapses into a “Help” link in the header.",
+   "steps": [
+    "Hide or move the bubble on /app/checkout at widths under 600px.",
+    "Make the “Buy label” button full width with 48px height.",
+    "Check with a 360px and a 390px screen."
+   ],
+   "metric": "Chat opens from /app/checkout on phones; phone label purchases",
+   "effort": "≈2 hours",
+   "risk": "Less visible help during payment; keep “Help” in the header.",
+   "test": {"task": "On a phone: buy the label for order #1.", "success": "Taps “Buy label” on the first try.", "watch": "Mis-taps, zooming in."},
+   "alt": [
+    "Shrink the bubble — rejected: still covers part of the button.",
+    "Remove chat in the app — rejected: users need help during their first label."
+   ],
+   "rtype": "Usability",
+   "thr": "Chat opens from checkout on phones down by 80% with no drop in help requests elsewhere",
+   "pm": "It failed because the chat vendor's script re-positioned the bubble after load. So set the position through the vendor's settings, not only in CSS.",
+   "accept": ["Nothing overlaps “Buy label” at 360px and 390px", "The button is at least 48px tall"]
+  },
+  "4": {
+   "why": "/signup has 9 fields, 6 required, including a company VAT number and “How did you hear about us?”. Password rules (12 characters, one number) appear only after a failed attempt.",
+   "change": "Email, password and shop platform only; the rest asked later inside the app when needed. Password rules shown under the field before typing.",
+   "steps": [
+    "Remove VAT number, company size and source from sign-up; ask for VAT at first invoice.",
+    "Show the password rules under the field and tick them off as they are met.",
+    "Add autocomplete attributes (email, new-password)."
+   ],
+   "metric": "Sign-up form completion rate; errors per sign-up",
+   "effort": "1–2 days",
+   "risk": "Marketing loses the “how did you hear” answer; ask it after the first label instead.",
+   "test": {"task": "Create an account for your shop; stop before the last button.", "success": "Fills the form in under a minute without an error.", "watch": "Pauses at optional fields; reaction to password rules."}
+  },
+  "5": {
+   "why": "When sync fails, the only message is “Sync job 4 failed (code 0)” in Settings › Advanced, where “Reconnect” also lives. The orders screen shows nothing.",
+   "change": "A banner on the orders screen: what failed in plain words, and a “Reconnect” button right there.",
+   "steps": [
+    "Map sync error codes to 4 plain messages (permission removed, store offline, timeout, unknown).",
+    "Show a banner on /app/orders with the message and “Reconnect”.",
+    "Keep the technical code in a “Details” toggle for support."
+   ],
+   "metric": "Time from a sync failure to the next successful sync",
+   "effort": "2 days",
+   "risk": "Too many banners for short outages; show after 2 failed attempts.",
+   "test": {"task": "Your orders stopped appearing. Get them back.", "success": "Reconnects from the banner within 1 minute.", "watch": "Whether they go to Settings first."},
+   "depends": ["UX02"]
+  },
+  "6": {
+   "why": "The sign-up page does not say whether a card is needed; the answer “No card needed” is in the pricing FAQ.",
+   "change": "“No card needed — 14 days free” as a line under the “Create account” button.",
+   "steps": ["Add the line under the button on /signup and on the home-page CTA.", "Remove the duplicate FAQ answer or link to it."],
+   "metric": "Sign-up starts per visit",
+   "effort": "≈30 minutes",
+   "risk": "Only if it is true for every plan.",
+   "test": {"task": "Before signing up: “Will this charge you anything today?”", "success": "Answers correctly without leaving the page.", "watch": "Scrolling to find the answer."}
+  },
+  "7": {
+   "why": "Carriers are listed by name. Parcel size has to be typed every time; there are no presets.",
+   "change": "Carriers sorted by price with delivery time shown; up to 5 saved parcel presets.",
+   "steps": ["Sort by price by default with a toggle for speed.", "Add “Save as preset” to the parcel form.", "Pre-fill the last used preset."],
+   "metric": "Time to buy a label (median)",
+   "effort": "3 days",
+   "risk": "Cheapest is not always best; show delivery days next to price.",
+   "test": {"task": "Ship order #2, same box as last time, cheapest option.", "success": "Done in under 40 seconds.", "watch": "Scanning the carrier list."}
+  },
+  "8": {
+   "why": "At 390px the weight and size fields open a full text keyboard and show no units next to the numbers.",
+   "change": "Numeric keypads (inputmode=\"decimal\") and units shown inside the fields.",
+   "steps": ["Set inputmode=\"decimal\" on weight and size.", "Show “g” and “cm” as suffixes.", "Check on iOS and Android."],
+   "metric": "Errors in parcel size per label",
+   "effort": "≈1 hour",
+   "risk": "Low.",
+   "test": {"task": "On a phone: enter a 1.2 kg, 30×20×10 cm parcel.", "success": "Enters it in one go without switching keyboards.", "watch": "Unit confusion."}
+  },
+  "9": {
+   "why": "Help search for “label price” returns 0 results; the article that answers it is titled “Carrier rates explained”.",
+   "change": "Help search that maps shop owners' words to the right articles, and article titles in their words.",
+   "steps": ["Add synonyms: label price → carrier rates, cost, fee.", "Rename the article “What a label costs”.", "Review zero-result searches monthly."],
+   "metric": "Zero-result help searches",
+   "effort": "≈1 day",
+   "risk": "Low.",
+   "test": {"task": "Find in help what a label to Germany costs.", "success": "Opens the right article from the first search.", "watch": "Words they type."}
+  },
+  "10": {
+   "why": "The platform pop-up lists 11 permissions; Parcelly does not explain why it needs them. Whether this stops people is a hypothesis: no data on drop-off at this step.",
+   "change": "Before the pop-up, a short list of what Parcelly reads and writes and why.",
+   "steps": ["Write one line per permission group.", "Show it on /app/connect before redirecting.", "Track how many cancel in the pop-up."],
+   "metric": "Share who cancel at the platform pop-up",
+   "effort": "≈half a day",
+   "risk": "A long list can scare more than it reassures; keep it to 4 lines.",
+   "test": {"task": "Connect your shop. Would you approve this? Why?", "success": "Approves and can say why access is needed.", "watch": "Hesitation at the pop-up."}
+  },
+  "11": {
+   "why": "The home-page video autoplays without captions; on a phone it starts muted with no sign that it has sound. The scanner flagged the video as having no captions track.",
+   "change": "Captions on by default and a visible “Sound on” control.",
+   "steps": ["Add a captions track.", "Show a “Sound on” button on muted playback."],
+   "metric": "Video completion rate",
+   "effort": "≈2 hours",
+   "risk": "Low.",
+   "test": {"task": "Watch the video on a phone in a quiet room. What did it say?", "success": "Can repeat the main point.", "watch": "Whether they look for sound."}
+  },
+  "12": {
+   "why": "Even with a rates table (#1) owners want their own numbers. A preview that takes a postcode and parcel size and shows live rates without an account might convince more; untested.",
+   "change": "A public “Check your rates” page: from and to postcodes, parcel size, then live label prices and the monthly total.",
+   "steps": ["Prototype with live rates for one carrier.", "Test with 5 owners against the rates table.", "Build only if it beats #1 on confidence and trial starts."],
+   "metric": "Trial starts after a rates check",
+   "effort": "1–2 weeks",
+   "risk": "API cost and abuse of a public rates endpoint; rate-limit it.",
+   "test": {"task": "Find out exactly what your usual parcel would cost to ship.", "success": "Gets a price they trust and wants to start a trial.", "watch": "Whether they mind entering a postcode."},
+   "depends": ["UX01"]
+  }
+ },
+ "testplan": {
+  "who": "Owners or managers of small online shops shipping 50–300 parcels a month, not Parcelly users; 3 on a phone, 2 on a laptop.",
+  "n": "5 sessions of 40 minutes; repeat with 5 new people after the top fixes",
+  "method": "Moderated remote, think-aloud, screen sharing; a test store for task 4. Read each task aloud; do not help.",
+  "before": "Consent to record; explain we test the app, not them; ask how they ship today.",
+  "tasks": [
+   {"t": "A friend recommended Parcelly. Take a minute and tell me what it does and whether it fits your shop.", "start": "Home page", "success": "Describes label printing for small shops in their own words.", "watch": "Whether they play the video; what they skip.", "ask": ["Who do you think this is for?"]},
+   {"t": "You ship about 200 small parcels a month. Find out what Parcelly would cost you.", "start": "Home page", "success": "States a monthly total without creating an account.", "watch": "Where they look for label prices; reaction to “after sign-up”.", "ask": ["How sure are you of that number (1–7)?", "What would stop you from trying it?"]},
+   {"t": "You want to try it. Get to the point where you would create the account, then stop.", "start": "Pricing page", "success": "Completes the form in under a minute and knows whether a card is needed.", "watch": "Optional fields; password errors.", "ask": ["What do you expect to happen next?"]},
+   {"t": "Connect this test store and get ready to ship your first order.", "start": "Empty app after sign-up", "success": "Understands the store is connected and has no paid orders.", "watch": "Waiting, refreshing, reconnecting.", "ask": ["At which moment did you know it worked?"]},
+   {"t": "Ship order #1 with the cheapest option and print the label.", "start": "Orders screen with one test order", "success": "Prints a label in under 2 minutes.", "watch": "Carrier choice; parcel fields; the chat bubble on phones.", "ask": ["What would make this faster next time?"]}
+  ],
+  "measure": ["Task success: done, done with help, not done", "Time on task", "Single Ease Question (SEQ, 1–7) after each task", "Wrong turns and taps that open chat", "Quotes that explain each failure"],
+  "after": "Match each failure to a walkthrough step; raise or lower confidence on the matching issues; re-run tasks 2, 4 and 5 after the top three fixes."
+ },
+ "answers": [
+  {"q": "Who is the user?", "a": "Small shop owners, 50–300 parcels a month, often on a phone"},
+  {"q": "Which tasks matter?", "a": "Understand, price, trial, connect store, first label"},
+  {"q": "What data can you share?", "a": "Analytics and 120 pre-sale support tickets (sample)"},
+  {"q": "What was tested before?", "a": "Skipped. Assumption: no usability tests yet", "skipped": true}
+ ],
+ "sources": [
+  {"name": "Walkthrough in a browser (desktop and 390px)", "note": "used", "status": "ok"},
+  {"name": "Keyboard walk and accessibility scanner", "note": "used", "status": "ok"},
+  {"name": "Test store connection", "note": "used", "status": "ok"},
+  {"name": "Analytics (sample)", "note": "sample", "status": "demo"},
+  {"name": "Support tickets (sample)", "note": "sample", "status": "demo"},
+  {"name": "Session recordings", "note": "not connected", "status": "no"},
+  {"name": "Tests with real users", "note": "none yet", "status": "no"}
+ ],
+ "rules": [
+  "Do not buy real labels or connect real customer stores while testing; use the test store and test payment mode.",
+  "Rates shown publicly must come from the live rate service, never typed by hand.",
+  "Record before/after screenshots at 1280px and 390px and a keyboard pass for every changed control.",
+  "Stay within UX: visual polish goes to a UI review, pricing strategy to a product review.",
+  "For a hypothesis or rethink task, prototype and test first; stop if the threshold is not met."
+ ],
+ "glossary": {
+  "ICE": {"g": "priority score", "d": "Impact × Confidence × Ease, each 1–10. The higher the product, the sooner to do it."},
+  "Nielsen's 10 heuristics": {"g": "usability rules of thumb", "d": "Ten general principles for interface design by Jakob Nielsen, such as visibility of system status and error prevention. Each issue here is tagged H1–H10."},
+  "heuristics": {"g": "usability rules of thumb", "d": "Here, Nielsen's 10 principles; H1–H10 in the tables."},
+  "Severity": {"g": "how bad for the user", "d": "1 cosmetic, 2 minor (slows down), 3 major (many struggle or give up), 4 blocker (cannot be done this way)."},
+  "empty state": {"g": "screen with nothing yet", "d": "What a screen shows when there is no data, such as a store with no orders. A good one says why and what to do next."},
+  "inputmode": {"g": "keyboard hint", "d": "An HTML attribute that tells a phone which keyboard to show, such as numbers only."},
+  "autocomplete": {"g": "autofill hint", "d": "An attribute that tells the browser what a field is so it can fill it in."},
+  "think-aloud": {"g": "say what you think", "d": "Participants speak their thoughts while doing a task, so you hear why they hesitate."},
+  "SEQ": {"g": "one-question ease score", "d": "Single Ease Question: “Overall, how easy was this task?” on a 1–7 scale."},
+  "pre-mortem": {"g": "imagine it failed", "d": "Assume the fix failed three months from now and explain why; the reasons become checks to do first."},
+  "FAQ": {"g": "questions and answers", "d": "Frequently asked questions; here, on the pricing page."},
+  "IA": {"g": "information architecture", "d": "How content is grouped, named and linked, so people can predict where things are."},
+  "VAT": {"g": "sales tax number", "d": "A company tax number; here asked at sign-up although it is only needed for invoices."}
+ }
+}

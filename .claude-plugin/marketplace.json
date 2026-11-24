@@ -1,0 +1,16 @@
+{
+  "name": "ux-review",
+  "description": "UX Review: walk the key tasks of a site or app through 10 UX lenses and get a visual report, a usability-test plan and a hands-off file for AI agents.",
+  "owner": {
+    "name": "Artem Horbenko",
+    "url": "https://github.com/artemhorbenko"
+  },
+  "plugins": [
+    {
+      "name": "ux-review",
+      "source": "./plugins/ux-review",
+      "description": "Walk key user tasks step by step (cognitive walkthrough), check Nielsen's 10 heuristics, IA, microcopy, forms, trust, accessibility basics, mobile, decision support and error states; get a prioritized, render-checked HTML report, a 5-task usability-test plan and a hands-off brief.",
+      "version": "1.0.0"
+    }
+  ]
+}

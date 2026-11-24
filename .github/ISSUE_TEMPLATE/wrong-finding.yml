@@ -1,0 +1,31 @@
+name: Wrong or weak finding
+description: The review flagged the wrong problem, invented something, or gave generic UX advice
+labels: ["analysis"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem
+      options:
+        - The issue is not real (I cannot reproduce it on the product)
+        - Wrong heuristic or wrong severity
+        - A number or fact is not in the sources (invented)
+        - Advice is generic, not specific to the product
+        - The usability-test task is leading or unclear
+        - It strays into visual polish or strategy (not UX)
+        - Recommends a dark pattern
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Quote the finding (task, step, heuristic) and say why it is wrong. What would the right conclusion be?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Product type and what you gave the skill
+      description: "e.g. SaaS marketing site, URL only, skipped all questions. No private data, please."

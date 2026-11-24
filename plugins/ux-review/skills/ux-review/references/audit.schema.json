@@ -1,0 +1,667 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://github.com/artemhorbenko/ux-review/audit.schema.json",
+ "title": "ux-review audit.json",
+ "description": "Data for assets/report-template.html and scripts/build_handoff.py. Rules beyond shape (evidence, top-3 fields, 5 test tasks, sources for numbers) are checked by scripts/validate_audit.py.",
+ "type": "object",
+ "required": [
+  "lang",
+  "text",
+  "tasks",
+  "lenses",
+  "ops",
+  "detail",
+  "plans",
+  "testplan",
+  "sources"
+ ],
+ "properties": {
+  "lang": {
+   "enum": [
+    "en",
+    "uk"
+   ],
+   "description": "Interface language; another value falls back to English labels"
+  },
+  "title": {
+   "type": "string",
+   "description": "Page <title>"
+  },
+  "persona": {
+   "type": "string",
+   "description": "Whose tasks were walked: role, company size, device"
+  },
+  "text": {
+   "type": "object",
+   "description": "The report's own words. Tokens {health} {qw} {n} {conf} {done} {tasks} {blockers}; [[words]] turn red.",
+   "properties": {
+    "label": {
+     "type": "string"
+    },
+    "headline": {
+     "type": "string"
+    },
+    "lead": {
+     "type": "string"
+    },
+    "tasksNote": {
+     "type": "string"
+    },
+    "lensesH": {
+     "type": "string"
+    },
+    "lensesP": {
+     "type": "string"
+    },
+    "walkH": {
+     "type": "string"
+    },
+    "walkP": {
+     "type": "string"
+    },
+    "heurH": {
+     "type": "string"
+    },
+    "heurP": {
+     "type": "string"
+    },
+    "matrixH": {
+     "type": "string"
+    },
+    "matrixP": {
+     "type": "string"
+    },
+    "opsH": {
+     "type": "string"
+    },
+    "opsP": {
+     "type": "string"
+    },
+    "nextH": {
+     "type": "string"
+    },
+    "nextP": {
+     "type": "string"
+    },
+    "planH": {
+     "type": "string"
+    },
+    "planP": {
+     "type": "string"
+    },
+    "testH": {
+     "type": "string"
+    },
+    "testP": {
+     "type": "string"
+    },
+    "dataH": {
+     "type": "string"
+    },
+    "dataP": {
+     "type": "string"
+    },
+    "footer": {
+     "type": "string"
+    },
+    "how": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "headline",
+    "lead",
+    "lensesH",
+    "walkH",
+    "heurH",
+    "matrixH",
+    "opsH",
+    "nextH",
+    "planH",
+    "testH",
+    "dataH"
+   ]
+  },
+  "kpis": {
+   "type": "array",
+   "maxItems": 4,
+   "items": {
+    "type": "object",
+    "required": [
+     "v",
+     "l"
+    ],
+    "properties": {
+     "v": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Value; null shows 'no data'"
+     },
+     "l": {
+      "type": "string"
+     },
+     "hot": {
+      "type": "boolean"
+     },
+     "src": {
+      "type": "string",
+      "description": "Name of an entry in sources; required when v has a literal number"
+     }
+    }
+   }
+  },
+  "tasks": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "t",
+     "out",
+     "steps"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^T[0-9]+$"
+     },
+     "t": {
+      "type": "string"
+     },
+     "short": {
+      "type": "string"
+     },
+     "goal": {
+      "type": "string"
+     },
+     "out": {
+      "enum": [
+       "ok",
+       "hard",
+       "fail",
+       "stop"
+      ],
+      "description": "ok done, hard done with trouble, fail could not, stop stopped at submit on purpose"
+     },
+     "steps": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+       "type": "object",
+       "required": [
+        "s"
+       ],
+       "properties": {
+        "s": {
+         "type": "string",
+         "description": "What the person does"
+        },
+        "page": {
+         "type": "string"
+        },
+        "f": {
+         "enum": [
+          0,
+          1,
+          2,
+          3,
+          null
+         ],
+         "description": "Friction 0 none, 1 minor, 2 major, 3 blocker, null not tested"
+        },
+        "k": {
+         "enum": [
+          "y",
+          "p",
+          "n",
+          null
+         ],
+         "description": "y yes, p partly, n no, null not testable"
+        },
+        "see": {
+         "enum": [
+          "y",
+          "p",
+          "n",
+          null
+         ],
+         "description": "y yes, p partly, n no, null not testable"
+        },
+        "rec": {
+         "enum": [
+          "y",
+          "p",
+          "n",
+          null
+         ],
+         "description": "y yes, p partly, n no, null not testable"
+        },
+        "note": {
+         "type": "string",
+         "description": "What was seen; required when f >= 2"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "lenses": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "k",
+     "i",
+     "g",
+     "s"
+    ],
+    "properties": {
+     "k": {
+      "type": "string",
+      "description": "Short radar label"
+     },
+     "n": {
+      "type": "string",
+      "description": "Full name for the list"
+     },
+     "i": {
+      "enum": [
+       "heur",
+       "walk",
+       "ia",
+       "copy",
+       "form",
+       "state",
+       "trust",
+       "dec",
+       "a11y",
+       "mob"
+      ]
+     },
+     "g": {
+      "enum": [
+       "base",
+       "find",
+       "act",
+       "decide",
+       "reach"
+      ]
+     },
+     "s": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+     }
+    }
+   }
+  },
+  "ops": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "t",
+     "l",
+     "ln",
+     "x",
+     "ev",
+     "sev",
+     "I",
+     "C",
+     "E"
+    ],
+    "properties": {
+     "t": {
+      "type": "string"
+     },
+     "l": {
+      "enum": [
+       "heur",
+       "walk",
+       "ia",
+       "copy",
+       "form",
+       "state",
+       "trust",
+       "dec",
+       "a11y",
+       "mob"
+      ]
+     },
+     "ln": {
+      "type": "string"
+     },
+     "x": {
+      "enum": [
+       "opt",
+       "ex"
+      ],
+      "description": "opt fix, ex rethink"
+     },
+     "ev": {
+      "enum": [
+       "obs",
+       "hyp"
+      ]
+     },
+     "sev": {
+      "enum": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "description": "1 cosmetic, 2 minor, 3 major, 4 blocker"
+     },
+     "task": {
+      "type": "string",
+      "description": "Task id, e.g. T2"
+     },
+     "step": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "1-based step in that task"
+     },
+     "h": {
+      "type": "array",
+      "items": {
+       "enum": [
+        "H1",
+        "H2",
+        "H3",
+        "H4",
+        "H5",
+        "H6",
+        "H7",
+        "H8",
+        "H9",
+        "H10"
+       ]
+      }
+     },
+     "I": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+     },
+     "C": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+     },
+     "E": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+     }
+    }
+   }
+  },
+  "plans": {
+   "type": "object",
+   "description": "Keyed by issue id (string). Required for the top 3 by ICE.",
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "h",
+     "m",
+     "t"
+    ],
+    "properties": {
+     "h": {
+      "type": "string",
+      "description": "Hypothesis"
+     },
+     "m": {
+      "type": "string",
+      "description": "Success metric"
+     },
+     "t": {
+      "type": "string",
+      "description": "Cheapest check"
+     }
+    }
+   }
+  },
+  "detail": {
+   "type": "object",
+   "description": "Keyed by issue id (string); one per issue.",
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "why",
+     "change",
+     "steps",
+     "metric",
+     "effort",
+     "risk",
+     "test"
+    ],
+    "properties": {
+     "why": {
+      "type": "string",
+      "description": "Evidence: page, step, what was seen"
+     },
+     "change": {
+      "type": "string",
+      "description": "The proposed new experience"
+     },
+     "steps": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+       "type": "string"
+      }
+     },
+     "metric": {
+      "type": "string"
+     },
+     "effort": {
+      "type": "string"
+     },
+     "risk": {
+      "type": "string"
+     },
+     "test": {
+      "type": "object",
+      "required": [
+       "task",
+       "success"
+      ],
+      "properties": {
+       "task": {
+        "type": "string"
+       },
+       "success": {
+        "type": "string"
+       },
+       "watch": {
+        "type": "string"
+       }
+      }
+     },
+     "accept": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "depends": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "pattern": "^UX[0-9]{2,}$"
+      }
+     },
+     "alt": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "rtype": {
+      "type": "string"
+     },
+     "thr": {
+      "type": "string"
+     },
+     "pm": {
+      "type": "string"
+     },
+     "copy": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "verify": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "testplan": {
+   "type": "object",
+   "required": [
+    "who",
+    "tasks"
+   ],
+   "properties": {
+    "who": {
+     "type": "string"
+    },
+    "n": {
+     "type": "string"
+    },
+    "method": {
+     "type": "string"
+    },
+    "before": {
+     "type": "string"
+    },
+    "tasks": {
+     "type": "array",
+     "minItems": 5,
+     "maxItems": 5,
+     "items": {
+      "type": "object",
+      "required": [
+       "t",
+       "success"
+      ],
+      "properties": {
+       "t": {
+        "type": "string",
+        "description": "Scenario as a goal, never 'click X'"
+       },
+       "start": {
+        "type": "string"
+       },
+       "success": {
+        "type": "string"
+       },
+       "watch": {
+        "type": "string"
+       },
+       "ask": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       }
+      }
+     }
+    },
+    "measure": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "after": {
+     "type": "string"
+    }
+   }
+  },
+  "answers": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "q",
+     "a"
+    ],
+    "properties": {
+     "q": {
+      "type": "string"
+     },
+     "a": {
+      "type": "string"
+     },
+     "skipped": {
+      "type": "boolean"
+     }
+    }
+   }
+  },
+  "sources": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "status"
+    ],
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "note": {
+      "type": "string"
+     },
+     "status": {
+      "enum": [
+       "ok",
+       "demo",
+       "no"
+      ]
+     }
+    }
+   }
+  },
+  "rules": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "description": "Rules for the implementer in the hands-off file"
+  },
+  "glossary": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "g",
+     "d"
+    ],
+    "properties": {
+     "g": {
+      "type": "string"
+     },
+     "d": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ }
+}
