@@ -2,7 +2,7 @@
 
 A Claude skill that walks the key tasks of a website, web app, SaaS flow or app screenshots **as your user**, step by step, and turns what breaks into a visual report, a prioritized fix list, a **5-task usability-test plan** and a **hands-off file** an AI agent can implement.
 
-It answers one question: **can people find, understand, decide and act?** Visual polish belongs to a UI review; strategy, pricing models and growth belong to [product-lens-audit](https://github.com/artemhorbenko/product-lens-audit).
+It reviews **one product at a time** and answers one question: **can people find, understand, decide and act?** Competitors' sites and comparisons with other products are out of scope. Visual polish belongs to a UI review; strategy, pricing models and growth belong to [product-lens-audit](https://github.com/artemhorbenko/product-lens-audit).
 
 **Live demo:** [English](https://claude.ai/artifact/XFAybtaGhMsL5E9EEuadcA) (fictional shipping-label app "Parcelly", made-up data).
 
@@ -19,7 +19,7 @@ It answers one question: **can people find, understand, decide and act?** Visual
 | Act and recover | **Forms and friction** | Is every field needed, labelled and autofill-ready? |
 | | **Error and empty states** | Does every error and empty screen say what happened and what to do next? |
 | Decide with confidence | **Trust and reassurance** | Is there a reason to believe at the moment of commitment? |
-| | **Decision support** | Can people find a price, compare options and see what fits them? |
+| | **Decision support** | Can people find a price, compare the plans and see what fits them? |
 | Reach everyone | **Accessibility basics** | Keyboard, focus, labels, names, state — the basics that block tasks. |
 | | **Mobile ergonomics** | Does the task work at 390px: tap targets, keypads, nothing covering the action? |
 
@@ -105,6 +105,7 @@ Start from `$S/assets/example-audit.en.json`; the shape is in `$S/references/aud
 
 ## Privacy and safety
 
+- One product per review: no competitors' sites, review sites or comparisons with other products.
 - Browsing is read-only: no form submissions, payments, messages, sign-ups or logins on the product under review.
 - It never invents numbers, quotes, testimonials, prices or response times, and it does not recommend dark patterns.
 - The report is one self-contained HTML file; nothing is sent anywhere by the report itself.
@@ -147,7 +148,7 @@ MIT - see [LICENSE](LICENSE).
 
 **UX Review** - скіл для Claude, який проходить ключові задачі сайту чи застосунку **як ваш користувач**, крок за кроком, і перетворює те, що ламається, на візуальний звіт, пріоритизований список виправлень, **план юзабіліті-тесту на 5 задач** і **hands-off файл**, який може виконати AI-агент.
 
-Він відповідає на одне питання: **чи можуть люди знайти, зрозуміти, вирішити й зробити?** Візуальне полірування - це UI-рев'ю, стратегія й ціноутворення - [product-lens-audit](https://github.com/artemhorbenko/product-lens-audit).
+Він аналізує **один продукт за раз** (без сайтів конкурентів і порівнянь з іншими продуктами) і відповідає на одне питання: **чи можуть люди знайти, зрозуміти, вирішити й зробити?** Візуальне полірування - це UI-рев'ю, стратегія й ціноутворення - [product-lens-audit](https://github.com/artemhorbenko/product-lens-audit).
 
 **Демо-звіт:** [англійською](https://claude.ai/artifact/XFAybtaGhMsL5E9EEuadcA) (вигаданий застосунок «Parcelly», умовні дані). Звіт має українські підписи: встановіть `"lang": "uk"` в audit.json.
 
@@ -155,7 +156,7 @@ MIT - see [LICENSE](LICENSE).
 - **Основа:** 10 евристик Нільсена (H1-H10), проходження ключових задач (когнітивний walkthrough: чи зрозуміло, що робити; чи видно, що спрацювало; чи можна виправити помилку).
 - **Знайти й зрозуміти:** інформаційна архітектура й навігація, ясність контенту й мікрокопірайтинг.
 - **Діяти й виправляти:** форми й тертя, стани помилок і порожні стани.
-- **Вирішити впевнено:** довіра, підтримка рішення (ціна, порівняння).
+- **Вирішити впевнено:** довіра, підтримка рішення (ціна, тарифи, що підходить).
 - **Доступно всім:** базова доступність (клавіатура, фокус, підписи), мобільна ергономіка.
 
 **Що в звіті:** задачі як рядки кроків, забарвлені за тертям; таблиці walkthrough; розбивка за евристиками; проблеми за ICE із серйозністю, задачею й кроком; повний план із запропонованою зміною та перевіркою з користувачами; план юзабіліті-тесту на 5 задач; джерела й впевненість. Окремо - `handoff.md` для AI-агента.

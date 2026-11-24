@@ -66,5 +66,9 @@
  {
   "query": "Build me a signup form in React",
   "should_trigger": false
+ },
+ {
+  "query": "Compare our checkout UX with Shopify's and our competitor's",
+  "should_trigger": false
  }
 ]

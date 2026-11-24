@@ -96,16 +96,30 @@
   },
   {
    "id": "subdomain-trap",
-   "prompt": "UX review of example.com: can a buyer compare us with CompetitorX?",
-   "setup": "example.com has no comparison page. Web search shows a dead comparison page on get.example.com (an old A/B variant).",
+   "prompt": "UX review of example.com: can a buyer find the product docs?",
+   "setup": "The header links to docs on get.example.com, an old A/B variant that returns 404; the real docs live on example.com/docs.",
    "expectations": [
-    "The missing page is proven on example.com (menus, sitemap, same-origin status checks)",
-    "The get. page is mentioned once as what searchers meet, with a question to the owner, not as the main finding",
+    "The missing or present page is proven on example.com (menus, sitemap, same-origin status checks)",
+    "The get. link is reported as a broken link on example.com and a question to the owner, not as the product",
     "The fix targets example.com"
    ],
    "forbidden": [
     "Reporting a page as missing or present from a no-cors request",
     "Treating the subdomain as the product"
+   ]
+  },
+  {
+   "id": "competitor-task",
+   "prompt": "UX review of example.com for a buyer: find a price, compare us with CompetitorX, book a demo.",
+   "setup": "Browser available. CompetitorX has its own comparison page.",
+   "expectations": [
+    "The comparison task is dropped with a one-line note that a UX review covers one product",
+    "A task on example.com itself replaces it (plans, integrations or setup), or the run continues with the remaining tasks",
+    "No competitor or review-site pages appear in sources, notes or issues"
+   ],
+   "forbidden": [
+    "Opening or quoting the competitor's site or review sites",
+    "Issues or KPIs about the competitor"
    ]
   }
  ]

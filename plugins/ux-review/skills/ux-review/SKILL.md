@@ -1,6 +1,6 @@
 ---
 name: ux-review
-description: UX review of a website, web app, SaaS flow or app screenshots - walk the key user tasks step by step (cognitive walkthrough) and check Nielsen's 10 heuristics, information architecture and navigation, microcopy, forms, trust, accessibility basics, mobile ergonomics, decision support (pricing, comparison) and error states. Delivers a visual report with friction per task step, prioritized fixes, a 5-task usability-test plan, and a hands-off file for AI agents. Use when someone asks for a UX review, usability audit, heuristic evaluation, "why can't people find / do X on my site", or to check a flow before a launch. Not for visual polish (ui-review) or product strategy (product-lens-audit).
+description: UX review of a website, web app, SaaS flow or app screenshots - walk the key user tasks step by step (cognitive walkthrough) and check Nielsen's 10 heuristics, information architecture and navigation, microcopy, forms, trust, accessibility basics, mobile ergonomics, decision support (pricing, plans) and error states. Delivers a visual report with friction per task step, prioritized fixes, a 5-task usability-test plan, and a hands-off file for AI agents. Use when someone asks for a UX review, usability audit, heuristic evaluation, "why can't people find / do X on my site", or to check a flow before a launch. Reviews one product at a time; not for competitor comparisons, visual polish (ui-review) or product strategy (product-lens-audit).
 ---
 
 # UX Review
@@ -8,6 +8,8 @@ description: UX review of a website, web app, SaaS flow or app screenshots - wal
 Walk the tasks that matter to one persona, step by step, and find where people cannot tell what to do, cannot see that it worked, or cannot recover. Turn that into a short, prioritized list of fixes in a visual report, a hands-off file for whoever implements them, and a usability-test plan to check the fixes with real people.
 
 Respond in the user's language, and write the report in it too.
+
+**One product per review.** Walk and judge only the product the person named, on its own domain. Do not open, audit, quote or compare competitors' sites, review sites or third-party comparison pages, and do not add competitor findings. If a requested task is about a competitor ("compare us with X"), say in one line that it is out of scope for a UX review, drop it, and offer a task on the product itself instead (for example, checking its plans or integrations).
 
 **Scope.** Can people find, understand, decide and act? Leave visual polish to a UI review (`ui-review`) and strategy, pricing models and growth to `product-lens-audit`. A visual or pricing point is in scope only when it blocks a task (see `references/lenses.md`).
 
@@ -40,7 +42,7 @@ Record each answer in `answers`; a skipped one shows "Skipped" plus the assumpti
 - **Repeat at phone width** (390px) for the key steps; if the window cannot be resized, use a 390px same-origin frame or a headless browser (`references/data-sources.md`).
 - **Keyboard pass**: Tab through the header and one key task and log the focus order.
 - **Read forms and hidden content from the page**: fields, required, input types, autocomplete, labels; collapsed FAQ; menu items.
-- **Stay on the domain the person named.** Subdomains (`get.`, `go.`, `lp.`, `staging.`) are often old A/B variants or staging copies; if search sends the persona there, note it and ask the owner, but judge the main site. Before saying a page does not exist, check the menus, the sitemap and likely addresses with a same-origin request (`references/data-sources.md`).
+- **Stay on the domain the person named.** Subdomains (`get.`, `go.`, `lp.`, `staging.`) are often old A/B variants or staging copies; if a link on the site sends the persona there, note it and ask the owner, but judge the main site. Before saying a page does not exist, check the menus, the sitemap and likely addresses with a same-origin request (`references/data-sources.md`).
 - **Never submit real forms**, payments, messages, sign-ups or newsletter boxes, and reject non-essential cookies. Stop before the final button; mark that step `f: null` (not tested) and the task outcome `stop`.
 - **Screenshots, recordings, analytics** the user shares count as evidence; note the date range.
 
@@ -87,6 +89,7 @@ Deliver one self-contained HTML page: publish it as an artifact when an artifact
 ## Rules
 - Every issue points to a page and step you saw, or is clearly marked as a hypothesis.
 - Never submit real forms, payments or messages; never log in to someone's account; reject non-essential cookies.
+- One product per review: no competitors' sites, review sites or comparisons with other products.
 - Judge the domain the person named; a page found on another subdomain is a note, not the product.
 - Never invent numbers, quotes, testimonials, response times or prices, in findings or in suggested copy. Unknown metrics show "no data" (`v: null` in a KPI).
 - Do not recommend dark patterns (fake urgency, confirmshaming, pre-ticked consent, hidden costs) even if they would raise conversion.
